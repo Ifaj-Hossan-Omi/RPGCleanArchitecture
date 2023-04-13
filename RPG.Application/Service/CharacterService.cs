@@ -75,6 +75,37 @@ namespace RPG.Application.Service
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<List<GetCharacterResponseDto>>> AddCharacter(AddCharacterRequestDto newCharacter)
+        {
+            var serviceResponse = new ServiceResponse<List<GetCharacterResponseDto>>();
+            var characters = await _characterRepository.AddCharacter(newCharacter.Adapt<Character>());
+            // var characterDtos = characters.Select(c => c.Adapt<GetCharacterResponseDto>()).ToList();
+            serviceResponse.Data = characters.Adapt<List<GetCharacterResponseDto>>();
+            return serviceResponse;
+
+        }
+
+        public async Task<ServiceResponse<GetCharacterResponseDto>> UpdateCharacter(UpdateCharacterRequestDto updatedCharacter)
+        {
+            var serviceResponse = new ServiceResponse<GetCharacterResponseDto>();
+            var character = await _characterRepository.UpdateCharacter(updatedCharacter.Adapt<Character>());
+            serviceResponse.Data = character.Adapt<GetCharacterResponseDto>();
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<List<GetCharacterResponseDto>>> DeleteCharacter(int id)
+        {
+            var serviceResponse = new ServiceResponse<List<GetCharacterResponseDto>>();
+            var characters = await _characterRepository.DeleteCharacter(id, 1);
+            serviceResponse.Data = characters.Adapt<List<GetCharacterResponseDto>>();
+            return serviceResponse;
+        }
+
+        public Task<ServiceResponse<GetCharacterResponseDto>> AddCharacterSkill(AddCharacterSkillRequestDto newCharacterSkill)
+        {
+            throw new NotImplementedException();
+        }
+
         // public Task<ServiceResponse<GetCharacterResponseDto>> GetById(int id)
         // {
         //     var serviceResponse = new ServiceResponse<GetCharacterResponseDto>();

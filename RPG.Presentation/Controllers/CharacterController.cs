@@ -8,7 +8,7 @@ using RPG.Domain.ServiceResponse;
 namespace RPG.Presentation.Controllers
 {
     [ApiController]
-    [Authorize]
+    // [Authorize]
     [Route("api/[controller]")]
     public class CharacterController : ControllerBase
     {
@@ -35,5 +35,31 @@ namespace RPG.Presentation.Controllers
         {
             return Ok(await _characterService.GetById(id));
         }
+        [HttpPost] //Routing Attribute
+        public async Task<ActionResult<ServiceResponse<List<GetCharacterResponseDto>>>> AddCharacter(AddCharacterRequestDto newCharacter)
+        {
+            return Ok(await _characterService.AddCharacter(newCharacter));
+        }
+        [HttpPut] //Routing Attribute
+        public async Task<ActionResult<ServiceResponse<GetCharacterResponseDto>>> UpdateCharacter(UpdateCharacterRequestDto updatedCharacter)
+        {
+            var response = await _characterService.UpdateCharacter(updatedCharacter);
+            if (response.Data is null)
+                return NotFound(response);
+            return Ok(response);
+        }
+        [HttpDelete("{id}")] //Routing Attribute
+        public async Task<ActionResult<ServiceResponse<GetCharacterResponseDto>>> DeleteCharacter(int id)
+        {
+            var response = await _characterService.DeleteCharacter(id);
+            if (response.Data is null)
+                return NotFound(response);
+            return Ok(response);
+        }
+        // [HttpPost("Skill")]
+        // public async Task<ActionResult<ServiceResponse<GetCharacterResponseDto>>> AddCharacterSkill(AddCharacterSkillRequestDto newCharacterSkill)
+        // {
+        //     return Ok(await _characterService.AddCharacterSkill(newCharacterSkill));
+        // }
     }
 }
