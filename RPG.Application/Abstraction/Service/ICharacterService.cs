@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RPG.Domain.DTO.Character;
+using RPG.Application.DTO.Character;
 using RPG.Domain.Entity;
 using RPG.Domain.ServiceResponse;
 

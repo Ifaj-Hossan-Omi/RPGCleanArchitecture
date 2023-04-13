@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPG.Domain.DTO.Character
+namespace RPG.Application.DTO.Character
 {
     public class GetCharacterResponseDto
     {
-        public int Id { get; set; }
+        // public int Id { get; set; }
         public string Name { get; set; } = "Frodo";
         public int HitPoint { get; set; } = 100;
         public int Strength { get; set; } = 10;

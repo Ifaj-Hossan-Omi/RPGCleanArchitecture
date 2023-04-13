@@ -24,7 +24,7 @@ builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICharacterService, CharacterService>();
-builder.Services.AddAutoMapper(typeof(Program).Assembly);
+// builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 
 // builder.Services.AddScoped<ITestingRepo, TestingRepo>();
