@@ -9,8 +9,8 @@ namespace RPG.Application.Abstraction.Repository
 {
     public interface ICharacterRepository
     {
-        Task<List<Character>> GetAllCharacters();
-        Task<Character> GetById(int id);
+        Task<List<Character>?> GetAllCharacters();
+        Task<Character?> GetById(int id);
         // Task<Character> GetCharacterById(int id);
         // Task<List<Character>> AddCharacter(Character character);
         // Task<List<Character>> UpdateCharacter(Character character);

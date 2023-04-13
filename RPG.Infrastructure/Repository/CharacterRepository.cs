@@ -18,14 +18,14 @@ namespace RPG.Infrastructure.Repository
         {
             _context = context;
         }
-        public async Task<List<Character>> GetAllCharacters()
+        public async Task<List<Character>?> GetAllCharacters()
         {
             return await _context.Characters.ToListAsync();
         }
-
-        public async Task<Character> GetById(int id)
+        public async Task<Character?> GetById(int id)
         {
-            return await _context.Characters.FirstOrDefaultAsync(c => c.Id == id);
+            return await _context.Characters.FindAsync(id);
+            // return await _context.Characters.FirstOrDefaultAsync(c => c.Id == id);
         }
     }
 }

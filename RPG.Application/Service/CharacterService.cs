@@ -65,9 +65,14 @@ namespace RPG.Application.Service
             return serviceResponse;
         }
 
-        public Task<ServiceResponse<GetCharacterResponseDto>> GetById(int id)
+        public async Task<ServiceResponse<GetCharacterResponseDto>> GetById(int id)
         {
-            throw new NotImplementedException();
+            // var characters = await _characterRepository.GetAllCharacters();
+            // serviceResponse.Data = characters.Find(c => c.Id == id).Adapt<GetCharacterResponseDto>();
+            var serviceResponse = new ServiceResponse<GetCharacterResponseDto>();
+            var character = await _characterRepository.GetById(id);
+            serviceResponse.Data = character.Adapt<GetCharacterResponseDto>();
+            return serviceResponse;
         }
 
         // public Task<ServiceResponse<GetCharacterResponseDto>> GetById(int id)
