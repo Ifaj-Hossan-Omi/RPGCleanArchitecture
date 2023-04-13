@@ -1,14 +1,13 @@
-﻿using System;
+﻿using RPG.Domain.Enum;
+using System;
 using System.Collections.Generic;
-using System.Formats.Asn1;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RPG.Domain.Enum;
 
-namespace RPG.Domain.Entity
+namespace RPG.Domain.DTO.Character
 {
-    public class Character
+    public class GetCharacterResponseDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = "Frodo";
@@ -16,6 +15,6 @@ namespace RPG.Domain.Entity
         public int Strength { get; set; } = 10;
         public int Defense { get; set; } = 10;
         public int Intelligence { get; set; } = 10;
-        // public RpgClass Class { get; set; } = RpgClass.Knight;
+        public RpgClass Class { get; set; } = RpgClass.Knight;
     }
 }

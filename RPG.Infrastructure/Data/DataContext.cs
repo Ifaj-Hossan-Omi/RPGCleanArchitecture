@@ -12,14 +12,17 @@ namespace RPG.Infrastructure.Data
 {
     public class DataContext : DbContext
     {
+        
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-
+        
         }
+
+
         public DbSet<User> Users => Set<User>();
         public DbSet<Character> Characters => Set<Character>();
     }
-    class DataContextFactory : IDesignTimeDbContextFactory<DataContext>
+    public class DataContextFactory : IDesignTimeDbContextFactory<DataContext>
     {
         // private IDesignTimeDbContextFactory<DataContext> _designTimeDbContextFactoryImplementation;
         public DataContext CreateDbContext(string[] args)
