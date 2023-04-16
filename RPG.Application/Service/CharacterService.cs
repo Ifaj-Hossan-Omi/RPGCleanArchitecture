@@ -10,19 +10,24 @@ using RPG.Application.Abstraction.Service;
 using RPG.Application.DTO.Character;
 using RPG.Domain.Entity;
 using RPG.Domain.ServiceResponse;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace RPG.Application.Service
 {
     public class CharacterService : ICharacterService
     {
-        // private readonly IMapper _mapper;
         private readonly ICharacterRepository _characterRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CharacterService(ICharacterRepository characterRepository)
+
+        public CharacterService(ICharacterRepository characterRepository, IHttpContextAccessor httpContextAccessor)
         {
-            // _mapper = mapper;
             _characterRepository = characterRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
+        private int GetUserId() => int.Parse(_httpContextAccessor.HttpContext!.User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+
 
 
         // public async Task<ServiceResponse<List<GetCharacterResponseDto>>> GetAllCharacters()
@@ -60,8 +65,10 @@ namespace RPG.Application.Service
         {
             var serviceResponse = new ServiceResponse<List<GetCharacterResponseDto>>();
             var characters = await _characterRepository.GetAllCharacters();
+            // var charactersforuser = characters.Where(c => c.User.Id == GetUserId()).ToList();
             // serviceResponse.Data = characters.Select(c => _mapper.Map<GetCharacterResponseDto>(c)).ToList();
-            serviceResponse.Data = characters.Adapt<List<GetCharacterResponseDto>>();
+            serviceResponse.Data = characters.Where(c => c.User.Id == GetUserId()).ToList()
+                                             .Adapt<List<GetCharacterResponseDto>>();
             return serviceResponse;
         }
 

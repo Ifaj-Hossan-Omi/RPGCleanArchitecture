@@ -11,6 +11,7 @@ namespace RPG.Presentation.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+
         private readonly IAuthRepository _authRepository;
         public AuthController(IAuthRepository authRepository)
         {

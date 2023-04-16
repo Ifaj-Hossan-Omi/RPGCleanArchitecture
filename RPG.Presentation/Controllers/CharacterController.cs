@@ -4,6 +4,7 @@ using RPG.Application.Abstraction.Service;
 using RPG.Application.DTO.Character;
 using RPG.Domain.Entity;
 using RPG.Domain.ServiceResponse;
+using System.Security.Claims;
 
 namespace RPG.Presentation.Controllers
 {
@@ -13,6 +14,7 @@ namespace RPG.Presentation.Controllers
     public class CharacterController : ControllerBase
     {
         private readonly ICharacterService _characterService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public CharacterController(ICharacterService characterService)
         {
@@ -20,6 +22,7 @@ namespace RPG.Presentation.Controllers
         }
 
         [HttpGet("GetAll")]
+        [Authorize]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterResponseDto>>>> Get()
         {
             return Ok(await _characterService.GetAllCharacters());

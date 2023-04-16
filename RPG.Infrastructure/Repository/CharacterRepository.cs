@@ -23,7 +23,9 @@ namespace RPG.Infrastructure.Repository
         }
         public async Task<List<Character>?> GetAllCharacters()
         {
-            return await _context.Characters.ToListAsync();
+            return await _context.Characters
+                .Include(c => c.User)
+                .ToListAsync();
         }
         public async Task<Character?> GetById(int id)
         {
