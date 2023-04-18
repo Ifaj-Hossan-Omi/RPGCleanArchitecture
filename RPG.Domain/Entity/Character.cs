@@ -19,5 +19,9 @@ namespace RPG.Domain.Entity
         public RpgClass Class { get; set; } = RpgClass.Knight;
         //One To Many Relationship -> One User can have many Characters
         public User? User { get; set; }
+        //One to One Relationship -> One Character (Primary Key) can have one Weapon
+        public Weapon? Weapon { get; set; }
+        //Many to Many Relationship -> Many Characters can have many Skills
+        public List<Skill>? Skills { get; set; }
     }
 }

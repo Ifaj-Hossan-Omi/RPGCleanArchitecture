@@ -22,7 +22,7 @@ namespace RPG.Presentation.Controllers
         }
 
         [HttpGet("GetAll")]
-        [Authorize]
+        [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterResponseDto>>>> Get()
         {
             return Ok(await _characterService.GetAllCharacters());

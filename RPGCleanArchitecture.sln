@@ -11,13 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7CEB7B5E-F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{6277E17F-BEF6-46FC-8E6B-ACD22ECB3025}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG.Domain", "RPG.Domain\RPG.Domain.csproj", "{A3A04D50-FFA5-4B59-8C5A-2AB416DA7CB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPG.Domain", "RPG.Domain\RPG.Domain.csproj", "{A3A04D50-FFA5-4B59-8C5A-2AB416DA7CB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG.Application", "RPG.Application\RPG.Application.csproj", "{B6E0B544-8A62-40C8-A69B-DEC626AD4B5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPG.Application", "RPG.Application\RPG.Application.csproj", "{B6E0B544-8A62-40C8-A69B-DEC626AD4B5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG.Infrastructure", "RPG.Infrastructure\RPG.Infrastructure.csproj", "{79A01B68-FFAE-4B52-B8D7-016C03BCD745}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPG.Infrastructure", "RPG.Infrastructure\RPG.Infrastructure.csproj", "{79A01B68-FFAE-4B52-B8D7-016C03BCD745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG.Presentation", "RPG.Presentation\RPG.Presentation.csproj", "{9A2FE69D-BFBC-4173-9DB6-D7EC4CAD9B4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPG.Presentation", "RPG.Presentation\RPG.Presentation.csproj", "{9A2FE69D-BFBC-4173-9DB6-D7EC4CAD9B4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
