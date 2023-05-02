@@ -14,5 +14,10 @@ namespace RPG.Domain.Entity
         public byte[] PasswordSalt { get; set; } = Array.Empty<byte>();
         //One To Many Relationship -> One User can have many Characters
         public List<Character>? Characters { get; set; }
+
+        public string RefreshToken { get; set; } = string.Empty;
+        public DateTime TokenCreated { get; set; }
+        public DateTime TokenExpires { get; set; }
+
     }
 }

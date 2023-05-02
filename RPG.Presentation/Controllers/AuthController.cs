@@ -4,6 +4,7 @@ using RPG.Application.Abstraction.Repository;
 using RPG.Application.DTO.User;
 using RPG.Domain.Entity;
 using RPG.Domain.ServiceResponse;
+using RPG.Domain.Token;
 
 namespace RPG.Presentation.Controllers
 {
@@ -34,12 +35,16 @@ namespace RPG.Presentation.Controllers
         [HttpPost("Login")]
         public async Task<ActionResult<ServiceResponse<string>>> Login(UserLoginRequestDto request)
         {
-            var response = await _authRepository.Login(request.Username, request.Password);
+            var response = await _authRepository.Login(request.Username, request.Password, Response);
 
             if (!response.Success)
                 return BadRequest(response);
 
             return Ok(response);
         }
+
+       
+        
+
     }
 }
