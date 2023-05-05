@@ -23,5 +23,8 @@ namespace RPG.Domain.Entity
         public Weapon? Weapon { get; set; }
         //Many to Many Relationship -> Many Characters can have many Skills
         public List<Skill>? Skills { get; set; }
+        public int Fights { get; set; }
+        public int Victories { get; set; }
+        public int Defeats { get; set; }
     }
 }
