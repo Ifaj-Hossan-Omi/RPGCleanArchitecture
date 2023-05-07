@@ -22,6 +22,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+// Adding Authentication feature in Swagger
 builder.Services.AddSwaggerGen(c =>
 {
     c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -34,12 +36,19 @@ builder.Services.AddSwaggerGen(c =>
 
     c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
-//
-builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
+
+
+// Mapping Repositories
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
+
+// Mapping Services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICharacterService, CharacterService>();
-builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<IFightService, FightService>();
+
+// JWT Bearer Token
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -52,6 +61,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = false
         };
     });
+
+// Add HttpContextAccessor for fetch data from the header
 builder.Services.AddHttpContextAccessor();
 
 
