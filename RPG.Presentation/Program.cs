@@ -40,9 +40,10 @@ builder.Services.AddSwaggerGen(c =>
 
 
 // Mapping Repositories
-builder.Services.AddScoped<IAuthRepository, AuthRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
+builder.Services.AddInfrastructure();
+// builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+// builder.Services.AddScoped<IUserRepository, UserRepository>();
+// builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
 
 // Mapping Services
 builder.Services.AddApplication();
