@@ -161,6 +161,7 @@ namespace RPG.Infrastructure.Repository
 
             var tokenDescription = new SecurityTokenDescriptor
             {
+                Issuer = "RPGGames",
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddHours(1),
                 SigningCredentials = creds

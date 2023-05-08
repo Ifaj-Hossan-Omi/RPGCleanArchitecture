@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RPG.Application;
 using RPG.Application.Abstraction.Repository;
 using RPG.Application.Abstraction.Service;
 using RPG.Application.Service;
@@ -44,9 +45,10 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
 
 // Mapping Services
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ICharacterService, CharacterService>();
-builder.Services.AddScoped<IFightService, FightService>();
+builder.Services.AddApplication();
+// builder.Services.AddScoped<IUserService, UserService>();
+// builder.Services.AddScoped<ICharacterService, CharacterService>();
+// builder.Services.AddScoped<IFightService, FightService>();
 
 // JWT Bearer Token
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
